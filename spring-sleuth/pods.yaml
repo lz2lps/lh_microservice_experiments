@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zipkin-app
+  labels:
+    name: zipkin-app
+spec:
+  containers:
+    - name: zipkin-app
+      image: registry.eu-gb.bluemix.net/lz2lps_lh_rebuild/zipkin-app:latest
+      ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: delay-app
+  labels:
+    name: delay-app
+spec:
+  containers:
+    - name: delay-app
+      image: registry.eu-gb.bluemix.net/lz2lps_lh_rebuild/delay-app:latest
+      ports:
+        - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: feign-app
+  labels:
+    name: feign-app
+spec:
+  containers:
+    - name: feign-app
+      image: registry.eu-gb.bluemix.net/lz2lps_lh_rebuild/feign-app:latest
+      ports:
+        - containerPort: 8080
